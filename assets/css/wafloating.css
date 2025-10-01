@@ -1,0 +1,47 @@
+.wa-floating {
+      position: fixed;            /* selalu mengikuti scrolling */
+      right: 18px;
+      bottom: 18px;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #25D366;        /* warna WA */
+      box-shadow: 0 10px 24px rgba(0,0,0,.18), 0 2px 6px rgba(0,0,0,.12);
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease, filter .2s ease;
+    }
+    .wa-floating:focus-visible {
+      outline: 3px solid rgba(37,211,102,.45);
+      outline-offset: 3px;
+    }
+    .wa-floating:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(0,0,0,.22), 0 10px 10px rgba(0,0,0,.16);
+      filter: brightness(1.05);
+    }
+    .wa-floating svg {
+      width: 50px;
+      height: 50px;
+      fill: white;
+      display: block;
+    }
+
+    /* Opsional: animasi “pulse” perlahan */
+    .wa-pulse {
+      animation: pulse 2.4s infinite;
+    }
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(37,211,102,.45); }
+      70%  { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+
+    /* Jarak sedikit lebih besar di layar kecil */
+    @media (max-width: 480px) {
+      .wa-floating { right: 14px; bottom: 14px; width: 52px; height: 52px; }
+      .wa-floating svg { width: 26px; height: 26px; }
+    }
